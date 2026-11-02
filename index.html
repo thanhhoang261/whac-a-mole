@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Bubu & Dudu - Đập Chuột Siêu Cute 🐻🐼</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Floating background clouds -->
+    <div class="bg-cloud cloud-1"></div>
+    <div class="bg-cloud cloud-2"></div>
+    <div class="bg-cloud cloud-3"></div>
+
+    <div id="game-app">
+      <!-- Header Dashboard -->
+      <header class="game-header">
+        <div class="stat-item">
+          <span class="stat-label">Điểm số</span>
+          <span id="score-val" class="stat-value stat-score">0</span>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-label">Thời gian</span>
+          <span id="timer-val" class="stat-value stat-time">60s</span>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-label">Mạng sống</span>
+          <div id="lives-box" class="lives-container">
+            <span>💖</span><span>💖</span><span>💖</span>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-label">Kỷ lục</span>
+          <span id="high-score-val" class="stat-value">0</span>
+        </div>
+
+        <div class="header-actions">
+          <button id="skin-btn" class="icon-btn" title="Đổi Skin Thật / Vector">🐻</button>
+          <button id="sound-btn" class="icon-btn" title="Âm thanh hiệu ứng">🔊</button>
+          <button id="bgm-btn" class="icon-btn" title="Nhạc nền BGM">🎵</button>
+        </div>
+      </header>
+
+      <!-- Rule summary ribbon -->
+      <div class="rule-bar">
+        <span class="rule-chip">🐻 <b>Dudu:</b> +10đ</span>
+        <span>•</span>
+        <span class="rule-chip">🐼 <b>Bubu:</b> CẤM ĐẬP 💔</span>
+        <span>•</span>
+        <span class="rule-chip">🧋 <b>Trà Sữa:</b> +50đ & +5s</span>
+      </div>
+
+      <!-- Combo Floating Streak -->
+      <div id="combo-badge">🔥 COMBO!</div>
+
+      <!-- 3x3 Holes Board -->
+      <main id="game-board" class="game-board"></main>
+
+      <!-- START MODAL -->
+      <div id="start-modal" class="modal-overlay">
+        <div class="modal-card">
+          <h1 class="modal-title">🐻 Bubu & Dudu 🐼</h1>
+          <p class="modal-subtitle">Thử thách phản xạ đập gấu siêu đáng yêu!</p>
+
+          <div class="guide-box">
+            <div class="guide-item">
+              <div class="guide-icon">🐻</div>
+              <div><b>Đập Dudu</b> (Gấu Nâu) thật nhanh để nhận điểm & kích hoạt Combo x2, x3!</div>
+            </div>
+            <div class="guide-item">
+              <div class="guide-icon">🐼</div>
+              <div><b>CẤM ĐẬP Bubu!</b> Đập nhầm gấu trắng Bubu sẽ bị trừ 15đ và mất 1 trái tim 💔.</div>
+            </div>
+            <div class="guide-item">
+              <div class="guide-icon">🧋</div>
+              <div><b>Cốc Trà Sữa Thần Kỳ:</b> Đập trúng sẽ cộng ngay <b>+50 điểm</b> và <b>+5 giây</b>!</div>
+            </div>
+          </div>
+
+          <button id="start-btn" class="big-btn">
+            <span>BẮT ĐẦU CHƠI</span> 🔨
+          </button>
+        </div>
+      </div>
+
+      <!-- GAME OVER MODAL -->
+      <div id="gameover-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+          <h2 id="gameover-title" class="modal-title">HẾT GIỜ RỒI! 🏁</h2>
+          <p id="gameover-reason" class="modal-subtitle">Trận đấu đã kết thúc!</p>
+
+          <div class="gameover-stats">
+            <div class="gameover-stat-box">
+              <div class="stat-label">Điểm trận này</div>
+              <div id="final-score" class="gameover-stat-val">0</div>
+            </div>
+            <div class="gameover-stat-box high">
+              <div class="stat-label">Kỷ lục cao nhất</div>
+              <div id="final-high-score" class="gameover-stat-val">0</div>
+            </div>
+          </div>
+
+          <button id="restart-btn" class="big-btn">
+            <span>CHƠI LẠI</span> 🔄
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
