@@ -144,10 +144,24 @@ class BubuDuduGame {
       this.bgmBtn.textContent = active ? '🎵' : '💤';
     });
 
-    window.addEventListener('pointerdown', () => {
+    // Hammer swinging cursor animation & visual hammer on mobile tap
+    window.addEventListener('pointerdown', (e) => {
       this.appEl.classList.add('swinging');
       setTimeout(() => this.appEl.classList.remove('swinging'), 130);
+
+      this.showTapHammer(e.clientX, e.clientY);
     });
+  }
+
+  private showTapHammer(x: number, y: number) {
+    if (!x && !y) return;
+    const hammer = document.createElement('div');
+    hammer.className = 'tap-hammer';
+    hammer.innerHTML = `<svg viewBox="0 0 80 80" width="100%" height="100%"><rect x="36" y="28" width="8" height="42" rx="4" fill="#FDCB6E" stroke="#E17055" stroke-width="2" transform="rotate(-30 40 49)"/><rect x="18" y="14" width="44" height="26" rx="10" fill="#FF7675" stroke="#B71540" stroke-width="2.5" transform="rotate(-30 40 27)"/><text x="32" y="32" font-size="14" fill="#FFEAA7" transform="rotate(-30 40 27)">⭐</text></svg>`;
+    hammer.style.left = `${x}px`;
+    hammer.style.top = `${y}px`;
+    document.body.appendChild(hammer);
+    setTimeout(() => hammer.remove(), 220);
   }
 
   private refreshCurrentHolesDisplay() {
